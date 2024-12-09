@@ -1,0 +1,13 @@
+CREATE TABLE COMPANYA (
+    nom VARCHAR (40) NOT NULL,
+    IATA VARCHAR (6) NOT NULL,
+    CODE3 VARCHAR (6) NOT NULL,
+    ICAO VARCHAR (6) NOT NULL,
+    pais VARCHAR (40) NOT NULL
+)
+
+CREATE TABLE AVIO (
+    num_serie VARCHAR (30) NOT NULL,
+    tipus VARCHAR (10)  NOT NULL, 
+    fabricant VARCHAR (20) NOT NULL,
+    any_fabricacio )
