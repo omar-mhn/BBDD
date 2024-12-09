@@ -27,7 +27,7 @@ CREATE TABLE MOSTRADOR (
 );
 
 CREATE TABLE PERSONAL (
-    num_empleat TINYINT (8),
+    num_empleat INT,
     nom VARCHAR (25) NOT NULL,
     cognom VARCHAR (35) NOT NULL,
     passaport VARCHAR (20) NOT NULL,
@@ -43,5 +43,13 @@ CREATE TABLE PASSATGER (
     nom VARCHAR (30) NOT NULL,
     cognom VARCHAR (50),
     email VARCHAR (40),
-    data_naixement DATE  
+    data_naixement DATE,
+    genere CHAR ('H','D')  
+);
+
+CREATE TABLE VOL (
+    codi VARCHAR(9) NOT NULL,
+    data DATE NOT NULL,
+    durada INT UNSIGNED,
+    descripcio VARCHAR (255)
 );
