@@ -3,14 +3,16 @@ CREATE TABLE COMPANYA (
     IATA VARCHAR (6) NOT NULL,
     CODE3 VARCHAR (6) NOT NULL,
     ICAO VARCHAR (6) NOT NULL,
-    pais VARCHAR (40) NOT NULL
+    pais VARCHAR (40) NOT NULL,
+    filial_de_nom_companya VARCHAR (40) NOT NULL 
 );
 
 CREATE TABLE AVIO (
     num_serie VARCHAR (30) NOT NULL,
     tipus VARCHAR (10)  NOT NULL, 
     fabricant VARCHAR (20) NOT NULL,
-    any_fabricacio YEAR 
+    any_fabricacio YEAR, 
+    nom_companya VARCHAR (40) NOT NULL
 );
 
 CREATE TABLE AEROPORT (
@@ -23,7 +25,8 @@ CREATE TABLE AEROPORT (
 );  
 
 CREATE TABLE MOSTRADOR (
-    numero TINYINT UNSIGNED
+    numero SMALLINT,
+    codi_aeroport VARCHAR (4) NOT NULL    
 );
 
 CREATE TABLE PERSONAL (
@@ -34,7 +37,12 @@ CREATE TABLE PERSONAL (
     sou float NOT NULL
 );
 
+CREATE TABLE HOSTESSA (
+    num_empleat_hostessa INT
+);
+
 CREATE TABLE PILOT (
+    num_empleat_pilot INT,
     hores_vol TIME
 );
 
@@ -44,12 +52,22 @@ CREATE TABLE PASSATGER (
     cognom VARCHAR (50),
     email VARCHAR (40),
     data_naixement DATE,
-    genere CHAR ('H','D')  
+    genere CHAR (2)  
 );
 
 CREATE TABLE VOL (
-    codi VARCHAR(9) NOT NULL,
+    codi_aeroport_origen VARCHAR (4) NOT NULL,
+    codi_aeroport_desti VARCHAR (4) NOT NULL,
+    num_serie_avio VARCHAR (30) NOT NULL,
+    num_empleat_hostessa INT,
+    num_empleat_pilot INT,
+    codi VARCHAR(9) NOT NULL, 
     data DATE NOT NULL,
-    durada INT UNSIGNED,
-    descripcio VARCHAR (255)
+    descripcio VARCHAR (255),
+    durada SMALLINT
+);
+
+CREATE TABLE VOLAR (
+    passatger_passaport VARCHAR (20) NOT NULL,
+    codi_vol VARCHAR(9) NOT NULL
 );
