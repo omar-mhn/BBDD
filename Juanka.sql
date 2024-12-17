@@ -46,7 +46,7 @@ CREATE TABLE PERSONAL (
     nom VARCHAR (25) NOT NULL,
     cognom VARCHAR (35) NOT NULL,
     passaport VARCHAR (20) NOT NULL,
-    sou float NOT NULL
+    sou float UNSIGNED NOT NULL
 );
 
 CREATE TABLE HOSTESSA (
@@ -55,15 +55,15 @@ CREATE TABLE HOSTESSA (
 
 CREATE TABLE PILOT (
     num_empleat INT,
-    hores_vol TIME
+    hores_vol SMALLINT
 );
 
 CREATE TABLE PASSATGER (
     passaport VARCHAR (20) NOT NULL,
     nom VARCHAR (30) NOT NULL,
+    cognom VARCHAR (50),
     adreca VARCHAR (70),
     telefon VARCHAR (9),
-    cognom VARCHAR (50),
     email VARCHAR (40),
     data_naixement DATE,
     genere CHAR (1)  
@@ -77,12 +77,12 @@ CREATE TABLE VOL (
     pilot INT,
     codi VARCHAR(9) NOT NULL, 
     data DATE NOT NULL,
-    descripcio VARCHAR (255),
-    durada SMALLINT
+    durada SMALLINT NOT NULL,
+    descripcio VARCHAR (7)
 );
 
 CREATE TABLE VOLAR (
     passatger VARCHAR (20) NOT NULL,
     vol VARCHAR(9) NOT NULL,
-    seient TINYINT 
+    seient TINYINT UNSIGNED 
 );
