@@ -6,7 +6,7 @@ create table Companya(
     CODE3 varchar(6) NOT NULL,
     ICAO varchar(6) NOT NULL,
     pais varchar (40)NOT NULL,
-    filial_de varchar(40) -- de la relacion --
+    filial_de varchar(40) not null  -- de la relacion --
 );
 create table Avió (
     num_serie varchar(30) NOT NULL ,
@@ -44,6 +44,8 @@ create table Pilot (
 create table Passatger (
    passaport varchar(20) NOT NULL,
    nom varchar(30) NOT NULL,
+   adreca varchar(30),
+   telefon varchar(9),
    cognom varchar(50),
    email varchar (40),
    data_naixement date,
