@@ -36,7 +36,7 @@ CREATE TABLE AEROPORT (
 );  
 
 CREATE TABLE MOSTRADOR (
-  //  numero SMALLINT,
+    numero SMALLINT,
     codi_aeroport VARCHAR (4) NOT NULL    
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE PILOT (
 CREATE TABLE PASSATGER (
     passaport VARCHAR (20) NOT NULL,
     nom VARCHAR (30) NOT NULL,
-    adreca VARCHAR (30),
+    adreca VARCHAR (70),
     telefon VARCHAR (9),
     cognom VARCHAR (50),
     email VARCHAR (40),
