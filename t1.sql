@@ -6,7 +6,7 @@ create table Companya(
     CODE3 varchar(6) NOT NULL,
     ICAO varchar(6) NOT NULL,
     pais varchar (40)NOT NULL,
-    filial_de varchar(40) not null  -- de la relacion --
+    filial_de varchar(40) not null -- de la relacion --
 );
 create table Avió (
     num_serie varchar(30) NOT NULL ,
@@ -25,7 +25,7 @@ create table Aeroport (
 );
 create table Monstrador (
     numero tinyint unsigned,
-    codi_aeroport varchar(4)    -- falta la de primary key --
+    codi_aeroport varchar(4) not null    -- falta la de primary key --
 );
 create table Personal (
     num_empleat tinyint unsigned,
