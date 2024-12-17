@@ -1,7 +1,13 @@
+
 DROP TABLE COMPANYA;
 DROP TABLE AVIO;
+<<<<<<< HEAD
 DROP TABLE AEROPORT
 DROP  TABLE MOSTRADOR;
+=======
+DROP TABLE AEROPORT;
+DROP TABLE MOSTRADOR;
+>>>>>>> Juan-Carlos
 DROP TABLE PERSONAL;
 DROP TABLE HOSTESSA;
 DROP TABLE PILOT;
@@ -45,7 +51,7 @@ CREATE TABLE PERSONAL (
     nom VARCHAR (25) NOT NULL,
     cognom VARCHAR (35) NOT NULL,
     passaport VARCHAR (20) NOT NULL,
-    sou float NOT NULL
+    sou float UNSIGNED NOT NULL
 );
 
 CREATE TABLE HOSTESSA (
@@ -53,14 +59,24 @@ CREATE TABLE HOSTESSA (
 );
 
 CREATE TABLE PILOT (
+<<<<<<< HEAD
     num_empleat_pilot INT,
     hores_vol TIME
+=======
+    num_empleat INT,
+    hores_vol SMALLINT
+>>>>>>> Juan-Carlos
 );
 
 CREATE TABLE PASSATGER (
     passaport VARCHAR (20) NOT NULL,
     nom VARCHAR (30) NOT NULL,
     cognom VARCHAR (50),
+<<<<<<< HEAD
+=======
+    adreca VARCHAR (70),
+    telefon VARCHAR (9),
+>>>>>>> Juan-Carlos
     email VARCHAR (40),
     data_naixement DATE,
     genere CHAR (2)  
@@ -74,11 +90,18 @@ CREATE TABLE VOL (
     num_empleat_pilot INT,
     codi VARCHAR(9) NOT NULL, 
     data DATE NOT NULL,
-    descripcio VARCHAR (255),
-    durada SMALLINT
+    durada SMALLINT NOT NULL,
+    descripcio VARCHAR (7)
 );
 
 CREATE TABLE VOLAR (
+<<<<<<< HEAD
     passatger_passaport VARCHAR (20) NOT NULL,
     codi_vol VARCHAR(9) NOT NULL
 );
+=======
+    passatger VARCHAR (20) NOT NULL,
+    vol VARCHAR(9) NOT NULL,
+    seient TINYINT UNSIGNED 
+);
+>>>>>>> Juan-Carlos
