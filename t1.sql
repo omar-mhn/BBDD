@@ -68,6 +68,25 @@ create table VOLAR (
 );
 
 
+--------exercice classe----------------------
+create table casa (
+    id varchar(9),
+    nom varchar(30),
+    constraint pk_casa primary key(id)
+);
+
+create table estudiante(
+    id varchar(9),
+    nom varchar(30),
+    curs varchar(40),
+    id_casa varchar(9),
+    constraint pk_estudiante primary key (id),
+    constraint fk_estudiente_casa foreign key (casa_id)references casa(id)
+
+);
+
+
+-----------Harry potter--------------------
 
 
 
