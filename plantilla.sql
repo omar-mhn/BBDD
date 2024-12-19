@@ -65,7 +65,7 @@ CREATE TABLE HOSTESSA (
 
 CREATE TABLE PILOT (
     num_empleat INT,
-    hores_vol SMALLINT
+    hores_vol SMALLINT UNSIGNED
 );
 
 CREATE TABLE PASSATGER (
