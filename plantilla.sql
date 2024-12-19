@@ -3,7 +3,7 @@
   INSTITUT TIC de Barcelona
     CFGS DAM 1B 
     Mòdul: 0484 Bases de dades. 
-    AUTORS: Juan Carlos Sánchez Omar Mehenni
+    AUTORS: Juan Carlos Sánchez i Omar Mehenni
     DATA: 18/12/2024
 ****************************************************** */
 
