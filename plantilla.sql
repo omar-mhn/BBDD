@@ -76,19 +76,19 @@ CREATE TABLE PASSATGER (
     adreca VARCHAR (70),
     telefon VARCHAR (9),
     email VARCHAR (40),
-    data_naixement DATE,
+    data_naix DATE,
     genere CHAR (1)  
 );
 
 CREATE TABLE VOL (
-    aeroport_origen VARCHAR (4) NOT NULL,
+    codi VARCHAR(9) NOT NULL,
     aeroport_desti VARCHAR (4) NOT NULL,
+    data DATE NOT NULL,
+    durada SMALLINT NOT NULL,
+    aeroport_origen VARCHAR (4) NOT NULL,
     avio VARCHAR (30) NOT NULL,
     hostessa INT,
     pilot INT,
-    codi VARCHAR(9) NOT NULL, 
-    data DATE NOT NULL,
-    durada SMALLINT NOT NULL,
     descripcio VARCHAR (7)
 );
 
