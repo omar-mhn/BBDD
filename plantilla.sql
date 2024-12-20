@@ -10,7 +10,7 @@
 -- Creació de les taules
 
 
-DROP TABLE COMPANYA;
+DROP TABLE COMPANYIA;
 DROP TABLE AVIO;
 DROP TABLE AEROPORT;
 DROP TABLE MOSTRADOR;
@@ -21,7 +21,7 @@ DROP TABLE PASSATGER;
 DROP TABLE VOL;
 DROP TABLE VOLAR;
 
-CREATE TABLE COMPANYA (
+CREATE TABLE COMPANYIA (
     nom VARCHAR (40) NOT NULL,
     IATA VARCHAR (6) NOT NULL,
     CODE3 VARCHAR (6), 
@@ -35,7 +35,7 @@ CREATE TABLE AVIO (
     tipus VARCHAR (10)  NOT NULL, 
     fabricant VARCHAR (20) NOT NULL,
     any_fabricacio YEAR, 
-    companya VARCHAR (40) NOT NULL
+    companyia VARCHAR (40) NOT NULL
 );
 
 CREATE TABLE AEROPORT (
@@ -81,14 +81,14 @@ CREATE TABLE PASSATGER (
 );
 
 CREATE TABLE VOL (
-    codi VARCHAR(9) NOT NULL,
-    aeroport_desti VARCHAR (4) NOT NULL,
-    data DATE NOT NULL,
-    durada SMALLINT NOT NULL,
     aeroport_origen VARCHAR (4) NOT NULL,
+    aeroport_desti VARCHAR (4) NOT NULL,
     avio VARCHAR (30) NOT NULL,
     hostessa INT,
     pilot INT,
+    codi VARCHAR(9) NOT NULL, 
+    data DATE NOT NULL,
+    durada SMALLINT NOT NULL,
     descripcio VARCHAR (7)
 );
 
