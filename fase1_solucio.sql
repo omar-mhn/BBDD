@@ -63,7 +63,7 @@ alter table personal
 add CONSTRAINT pk_personal primary key (num_empleat);
 
 alter table personal
-add CONSTRAINT ch_sou check (sou >= 200000);
+add CONSTRAINT ch_sou check (sou >= 20000);
 
 -- ------------------------------------------------------
 --  Creació de la taula  pilot
@@ -78,7 +78,7 @@ ALTER TABLE pilot
 add CONSTRAINT pk_pilot PRIMARY KEY (num_empleat);
 
 ALTER TABLE pilot
-add constraint ch_hores_Vol CHECK (hores_Vol <= 400);
+add constraint ch_hores_Vol CHECK (hores_Vol >= 400);
 
 ALTER table pilot
 add CONSTRAINT fk_pilot_num_empleat FOREIGN KEY (num_empleat) references personal (num_empleat)
