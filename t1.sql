@@ -209,5 +209,212 @@ create table participar (
 -- modificar la taula t2 --
 alter table t2 add column metres tinyint;
 alter table t2 add column t_nevera boolean after tipus;
+-- para brrar una columna --
+alter table t2 drop column t_nevera;
+
+-- 13/01/2025 --
+-- modify para cambiar structura (tipus de dades) mais le change on peut faire les deux (le nom et le type)--
+-- Problemes de la base de dades de pelis
+ 
+-- Problema 1
+create table if not exists pelicula (
+    id char(6),
+    titulo varchar(70),
+    anyo smallint unsigned,
+    genero varchar(15)
+);
+ 
+-- Problema 2
+create table if not exists actor (
+    id smallint unsigned,
+    nom varchar(25)
+);
+ 
+-- Problema 3
+create table if not exists reparto(
+    actor_id smallint unsigned,
+    pelicula_id smallint unsigned,
+    orden smallint unsigned
+);
+ 
+-- exercice --
+--11-- 
+alter table pelicula  modify column titulo varchar(70)  not null;
+--12--
+alter table actor modify nom varchar (25) not null;
+--13--
+ alter table pelicula add column puntuacion float;
+ --14
+ alter table pelicula add column votos tinyint ;
+ --15
+ alter table pelicula drop column genero; 
+ --16
+ rename table participar to reparto;
+
+ -- slución jordi https://pastebin.com/VApvcKNz
+  -- pour faire les restrictions 
+alter table persona add constraint pk_persona primary key (dni);
+alter table coche add constraint pk_coche primary key (maricula);
+
+--clau foranes
+alter table coche 
+add constraint fk_coche_persona
+foreign key (dni_propietari) references persona (dni);
 
 
+
+-- ejercicios del 04 a 10 
+--4
+alter table pelicula 
+add constraint pk_pelicula 
+primary key (id) ;
+--5
+alter table actor
+add constraint pk_actor 
+primary key (id);
+
+--6 
+alter table pelicula
+add constraint fk_rep_pelicula 
+foreign key (pelicula_id) references pelicula(id);
+
+
+--7 
+alter table pelicula
+modify id char(7);
+-- 8 
+ALTER TABLE pelicula ADD COLUMN pelicula_id char(6);
+--9
+
+
+-- martes 14/1 
+-- revision de classe pere et fils 
+-- code de jordi 
+-- borrat de taules
+drop table persona;
+drop table coche;
+ 
+-- Creació de taules 
+create table persona(
+    dni char(9),
+    nom varchar(30)
+);
+create table coche(
+    matricula char(7),
+    marca varchar(30),
+    model varchar(30),
+    dni_propietari char(9)
+);
+ 
+-- Claus primàries
+alter table persona add constraint pk_persona primary key(dni);
+alter table coche add constraint pk_coche primary key(matricula);
+ 
+ 
+-- Claus foranes
+ 
+alter table coche 
+add constraint fk_coche_propietari foreign key(dni_propietari)
+references persona(dni)
+on delete set null
+on update cascade;
+-- en gros quand on suprime le pere il dit dans le fill que NULL --
+-- on delete cascada; ici si on veut suprimer, il suprime le pere et le fils. --
+-- on delete cascada; elle ne me laisse pas suprimer et elle est par default si on ne-- 
+-- met aucun restriction (on delete) c'est cela qui viens par default--
+-- Introducció de dades
+insert into persona values('11111A', 'Pere');
+
+insert into persona values('22222B', 'Nuria');
+ 
+insert into coche values('B111A', 'Seat', 'Ibiza','11111A');
+ 
+-- borrat de dades
+ 
+delete from persona where dni='11111A';
+
+
+
+-- corrections exercices jordi 
+-- Problemes de la base de dades de pelis
+ 
+-- Problema 1
+create table if not exists pelicula (
+    id char(6),
+    titulo varchar(70),
+    anyo smallint unsigned,
+    genero varchar(15)
+);
+ 
+-- Problema 2
+create table if not exists actor (
+    id smallint unsigned,
+    nom varchar(25)
+);
+ 
+-- Problema 3
+create table if not exists reparto(
+    actor_id smallint unsigned,
+    pelicula_id smallint unsigned,
+    orden smallint unsigned
+);
+ 
+-- Problema 4
+alter table pelicula
+add constraint pk_pelicula primary key(id);
+ 
+-- problema 5
+alter table actor
+add constraint pk_actor primary key(id);
+ 
+--problema 6
+ 
+alter table reparto
+add constraint FK_REP_PELICULA 
+foreign key(pelicula_id) references pelicula(id);
+-- No permet crear la restricció ja que els dos atributs
+-- són de tipus de dades diferents (char i integer)
+ 
+-- problema 7
+alter table pelicula
+modify column id smallint unsigned;
+ 
+-- problema 8
+alter table reparto
+add constraint FK_REP_PELICULA 
+foreign key(pelicula_id) references pelicula(id);
+ 
+-- problema 9
+ 
+-- problema 10
+ 
+9. Crea la clau primària de la taula participar
+10. Crea la clau forana de participar cap a actor
+ 
+ 
+ 
+-- Problemes 11 al 16
+ 
+-- problema 11
+alter table pelicula
+modify column titulo varchar(70) not null;
+--problema 12
+alter table actor
+modify column nom varchar(25) not null;
+ 
+-- problema 13
+alter table pelicula
+add column puntuacion float;
+ 
+-- problema 14
+alter table pelicula
+add column votos integer;
+ 
+-- problema 15
+alter table pelicula
+drop column genero;
+ 
+-- problema 16
+rename table participar to reparto;
+ 
+ 
