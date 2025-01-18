@@ -91,7 +91,7 @@ CREATE TABLE avio (
 )  CHARACTER SET utf8mb4;
 
 alter table avio 
-add constraint check (tipus='COM-PAS' or tipus='JET' or tipus= 'CARGO');
+add constraint ck_tipus check (tipus='COM-PAS' or tipus='JET' or tipus= 'CARGO');
 
 alter table avio 
 add constraint pk_avio primary key (num_serie);
