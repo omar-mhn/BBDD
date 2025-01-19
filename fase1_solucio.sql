@@ -62,6 +62,9 @@ CREATE TABLE personal (
 alter table personal
 add CONSTRAINT pk_personal primary key (num_empleat);
 
+alter TABLE personal
+add constraint uq_personal_passaport UNIQUE (passaport);
+
 alter table personal
 add CONSTRAINT ch_sou check (sou >= 20000);
 
