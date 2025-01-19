@@ -15,6 +15,7 @@
 -- ------------------------------------------------------
 --  Eliminació de taules
 -- ------------------------------------------------------
+
 drop table if exists volar;
 drop table if exists vol;
 drop table if exists pilot;
