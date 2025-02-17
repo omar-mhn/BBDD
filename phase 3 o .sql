@@ -20,7 +20,7 @@ where fabricant not like'%Boeing%' and any_fabricacio >= 2020 ORDER BY any_fabri
 -- Pregunta 3
 select concat ("L'aeroport ",nom," està a ",ciutat," i va ser construït l'any ",any_construccio) AS aeroport
 from aeroport
-where pais like'spain';
+where pais like'spain'order by aeroport;
 
 -- Pregunta 4
 select nom,pais,CHAR_LENGTH (nom) as longitud 
@@ -44,7 +44,7 @@ from avio
 where any_fabricacio = 2000 order by fabricant;
 
 -- Pregunta 8
-select nom,cognom,date_format(data_naix,' %d/%m/%Y(%W)') as naixement 
+select cognom,nom,date_format(data_naix,' %d/%m/%Y(%W)') as naixement 
 from passatger 
 where (year(data_naix) = 2003 and month (data_naix) = 10 and nom not like '%a%') order by data_naix desc, cognom ;
 
@@ -53,5 +53,3 @@ select nom,cognom,telefon,data_naix
 from passatger
 where (timestampdiff(year, data_naix,now()) between 54 and 55) and mod(telefon,2)=1 and adreca is null 
 order by data_naix, nom ;
-plantilla.sql
-plantilla.sql s'està mostrant.
