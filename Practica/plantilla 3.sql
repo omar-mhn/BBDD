@@ -18,7 +18,7 @@ from avio
 where fabricant not like '%Boeing%' and any_fabricacio >= 2020 order by any_fabricacio, fabricant, num_serie;
 
 -- Pregunta 3
-select concat ('L''aeroport ',nom, ' està a ' , ciutat, ' i va ser construït l''any ', any_construccio) as aeroport
+select concat ('L''aeroport ',nom, ' està a ', ciutat, ' i va ser construït l''any ', any_construccio) as aeroport
 from aeroport
 where pais like 'Spain'order by aeroport;
 
@@ -29,19 +29,19 @@ WHERE nom LIKE '%e%e%e%' and char_length(nom) between 7 and 9
 order by longitud desc, pais; 
 
 -- Pregunta 5
-SELECT num_serie
-FROM avio 
-WHERE (any_fabricacio LIKE '2008' and fabricant like 'Concorde') or (any_fabricacio like '2008' and companyia like 'Alitalia') order by num_serie;
+select num_serie 
+from avio 
+where (companyia like 'Alitalia' or fabricant like 'Concorde') and any_fabricacio = 2008 order by num_serie ;
 
 -- Pregunta 6
 SELECT concat(cognom, ', ', nom) as nom_complet
 FROM passatger
-where (nom like '%k%k%' or cognom like '%k%k%') and adreca like '%barcelona%' and (nom not like '%k%k%k%' and cognom not like '%k%k%k%') order by cognom;
+where (nom like '%k%k%' or cognom like '%k%k%') and adreca like '%barcelona'  order by cognom;
 
 -- Pregunta 7
 SELECT distinct fabricant
 from avio 
-where any_fabricacio like '2000' order by fabricant;
+where any_fabricacio = 2000  order by fabricant;
 
 -- Pregunta 8
 SELECT cognom, nom, DATE_FORMAT(data_naix, '%d/%m/%Y (%W)') AS naixement
