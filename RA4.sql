@@ -274,4 +274,90 @@ from alumne, asignatura, fer
 where fer.dni = alumne.dni and fer.codi = asignatura.codi;
 insert into fer values ('11111F', 484);
 
-----
+----_______________________________________
+-- ici on va commence un nouveau truc je pense le inner et innerjoint et tout
+-- exemple pour la recursividad 
+create table persona(
+	dni char(9) primary key,
+	nom varchar(20),
+	email varchar(20),
+	dni_jefe char(9),
+	constraint fk_empl_jefe FOREIGN key (dni_jefe) references persona(dni)
+);
+ 
+ 
+insert into persona values('11111A', 'Akasha', 'akasha@itic', NULL);
+insert into persona values('22222B', 'Carlos', 'carlos@itic', '11111A');
+ 
+insert into persona values('33333C', 'Wael', 'wael@itic', '22222B');
+ 
+insert into persona values('44444D', 'Alvaro', 'alvaro@itic', '11111A');
+insert into persona values('55555E', 'Omar', 'omar@itic', '44444D');
+
+-- soluition
+select pa.nom, pb.nom from persona pa , persona pb
+where pa.dni_jefe = pb.dni;
+
+
+select nom_superheroi,a.color , b.color , p.color  
+from superheroi,color a ,color b , color p 
+where superheroi.id_color_cabell = a.id and superheroi.id_color_ulls = b.id and superheroi.id_color_pell = p.id   and superheroi.nom_superheroi like'%j%';
+
+-- ici on le fait dans la recursividades ou deux attribus qui ont deux relations ou plus 
+-- este amb SQl 92
+insert into coche values('b4434D','Audi', 'RS6', '55555E');
+
+select marca ,model, nom
+from coche,persona  where coche.dni = persona.dni;
+
+-- amb sql 99 
+-- au lieu de faire la coma on fait un join et le type de join qu'on veut 
+-- le crooss il fait le produit  
+select marca ,model, nom
+from coche CROSS JOIN persona;
+
+
+-- le deuxieme 
+--prends ls deux tables et VA VOIR QUEL ATTRIBUE QUI SAPPELLE IGUAL (ici fait attention que quand des fois la PK et FK ne s'appelle pas ou ont pas le meme nom )
+select marca ,model, nom
+from coche NATURAL JOIN persona;
+
+-- on a le join using permet d'indique quels attribus je veux utiliser.mais il doit prendre les attibus qui s'appelle kif kif 
+select marca ,model, nom
+from coche JOIN persona using(dni);
+
+-- et on  a le dernier join on ici nous ecrivons le clave forania = clave p comme dabbb 
+
+select marca ,model, nom
+from coche JOIN persona on (persona.dni = coche.dni );
+-- exemple 23 avec sql 99
+select nom_superheroi,color 
+from superheroi join color on (superheroi.id_color_ulls = color.id) where color like'%blau';
+
+
+select nom_superheroi,nom_atribut
+from superheroi 
+      join atribut_heroi on (atribut_heroi.heroi_id = superheroi.id)
+      join atribut on (atribut_heroi.atribut_id = atribut.id)
+where nom_atribut like '%intel·ligència%';
+
+-- pour comprendre le left et right outer 
+select profe.nom, casa.nom from profe left outer join casa on (profe.casa_id = casa.id); 
+coalesce
+-------------------- tema nuevo 11/3(phase 5 )
+-- count la premiere pour compter le total 
+select count(*) from profe   -- compter combien il yA de prof (harry)
+where nom like '%a%'; 
+
+select count(*),count(nom),count(casa_id) from profe;
+
+select count(*) from profe 
+where casa_id is not null;
+select count(casa_id) from profe; -- 1 et 2 c'est la meme chose.
+
+-- on a le max min avg et sum 
+-- et maintenant on fait le group by pour groupe selon ce qu'on veux;
+
+select raca,count(*)  from superheroi
+join raca on (superheroi.id_raca = raca.id)
+ group by raca having count(*) > 10 order by count(*) desc;
