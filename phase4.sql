@@ -29,8 +29,8 @@ order by avio.companyia,vol.data,vol.codi;
 
 -- Pregunta 4
 select concat(passatger.cognom,", ",passatger.nom) as passatger,
-concat(personal.cognom,", ",personal.nom) as hostessa,ao.nom as aeroport_origen,
-ad.nom as aeroport_desti, vol.durada
+concat(personal.cognom,", ",personal.nom) as hostessa,ao.codi as aeroport_origen,
+ad.codi as aeroport_desti, vol.durada
 from vol
 join aeroport as ao on (ao.codi = vol.aeroport_origen)
 join aeroport as ad  on  (ad.codi = vol.aeroport_desti)
