@@ -1,16 +1,16 @@
 /* *****************************************************
   INSTITUT TIC de Barcelona
-    CFGS _____________________________
+    CFGS Desenvolupador d'aplicions multiplataforma
     Mòdul: 0484 Bases de dades. 
-    AUTORS:Omar Mehenni Juan carlos Sánchez
-    DATA: 11/03/2025
+    AUTORS:Omar Mehenni i Juan carlos Sánchez
+    DATA: 16/03/2025
 ****************************************************** */
 
 -- Pregunta 1
 select aeroport.ciutat, aeroport.nom as aeroport , vol.data , vol.codi from 
 aeroport join vol on (vol.aeroport_origen = aeroport.codi)
 where durada < 40 and month (data) = 02  and year (data) = 2024 and descripcio like "%delayed"
-order by ciutat, data ;
+order by ciutat, data;
 -- Pregunta 2
 select avio.any_fabricacio as any ,companyia.nom as companyia , avio.num_serie, avio.tipus 
 from companyia join avio on (avio.companyia = companyia.nom)
