@@ -2,8 +2,8 @@
   INSTITUT TIC de Barcelona
     CFGS _____________________________
     Mòdul: 0484 Bases de dades. 
-    AUTORS:Omar Mehenni Juan carlos Sanchez
-    DATA: ________________
+    AUTORS:Omar Mehenni Juan carlos Sánchez
+    DATA: 11/03/2025
 ****************************************************** */
 
 -- Pregunta 1
@@ -12,7 +12,7 @@ aeroport join vol on (vol.aeroport_origen = aeroport.codi)
 where durada < 40 and month (data) = 02  and year (data) = 2024 and descripcio like "%delayed"
 order by ciutat, data ;
 -- Pregunta 2
-select avio.any_fabricacio as any ,companyia.nom as companyia , num_serie, tipus 
+select avio.any_fabricacio as any ,companyia.nom as companyia , avio.num_serie, avio.tipus 
 from companyia join avio on (avio.companyia = companyia.nom)
 where companyia.pais like "%Spain" and avio.any_fabricacio < 2000 
 order by any desc,companyia,num_serie; 
@@ -49,7 +49,7 @@ join aeroport as ad on (ad.codi = aeroport_desti)
 join aeroport as ao on (ao.codi = aeroport_origen)
 where year(vol.data) = 2024 and vol.durada > 160 and ao.ciutat like"__o%" and ad.ciutat like "__o%"
 order by vol.codi;
---- probleme 06 et 07 que dois je faire dans le nom de companyia ou companyia 
+
 -- Pregunta 6 
 select c1.nom,c2.nom ,concat(persoPil.cognom,",",persoPil.nom)as pilot , concat(persoHos.cognom,", ",persoHos.nom) as hostessa
 from companyia
