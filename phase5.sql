@@ -1,8 +1,8 @@
 /* *****************************************************
   INSTITUT TIC de Barcelona
-    CFGS _____________________________
+    CFGS Desenvolupador d'aplicions multiplataforma
     Mòdul: 0484 Bases de dades. 
-    AUTORS:Omar Mehenni y Juan Carlos Sánchez
+    AUTORS:Omar Mehenni i Juan Carlos Sánchez
     DATA: 18/03/2025
 ****************************************************** */
 
