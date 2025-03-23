@@ -8,8 +8,8 @@
 
 -- Pregunta 1
 select aeroport.ciutat, count(ciutat) as total_vols
-from vol join aeroport 
-on (vol.aeroport_desti = aeroport.codi)  
+from vol
+join aeroport on (vol.aeroport_desti = aeroport.codi)  
 where year (data)= 2023 
 group by ciutat
 having count(ciutat) >= 800
@@ -20,24 +20,23 @@ order by total_vols desc;
 
 -- Pregunta 2
 select companyia.nom as companyia,
-count(vol.codi) as total_vols,
-avg(vol.durada) as vol_promig,
-max(data) as last_vol 
-from companyia left join avio 
-on avio.companyia = companyia.nom
-left join vol 
-on vol.avio = avio.num_serie
+       count(vol.codi) as total_vols,
+       avg(vol.durada) as vol_promig,
+       max(data) as last_vol 
+from companyia
+left join avio on avio.companyia = companyia.nom
+left join vol on vol.avio = avio.num_serie
 where companyia.pais = 'Spain'
 group by companyia.nom
 order by companyia.nom;  
 
 -- Pregunta 3
 select year(vol.data) as any,
-month(vol.data) as mes, 
-companyia.nom as nom,
-count(vol.codi) as total_vols
-from companyia join avio 
-on (avio.companyia = companyia.nom)
+ month(vol.data) as mes, 
+ companyia.nom as nom,
+ count(vol.codi) as total_vols
+from companyia
+join avio on (avio.companyia = companyia.nom)
 join vol on (vol.avio = avio.num_serie)
 where companyia.pais = 'Spain' and year(vol.data) = 2023
 group by any, mes, companyia.nom
