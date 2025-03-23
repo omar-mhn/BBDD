@@ -1,8 +1,8 @@
 /* *****************************************************
   INSTITUT TIC de Barcelona
-    CFGS _____________________________
+    CFGS Desenvolupador d'aplicions multiplataforma
     Mòdul: 0484 Bases de dades. 
-    AUTORS:Omar Mehenni y Juan Carlos Sánchez
+    AUTORS:Omar Mehenni i Juan Carlos Sánchez
     DATA: 18/03/2025
 ****************************************************** */
 
@@ -39,7 +39,7 @@ where companyia.pais like '%spain' and Year (data) = 2023
 group by Year (vol.data),month(vol.data),companyia.nom
 order by any,mes,nom;
 -- Pregunta 4
-select vol.codi,
+select 
 	aeroport_or.codi as codi_origen,
 	aeroport_or.nom as nom_origen,
     aeroport_or.pais as pais_origen,
@@ -63,5 +63,6 @@ having  count(vol.codi) > (select count(vol.codi)
 from companyia 
 join avio on avio.companyia = companyia.nom 
 join vol on vol.avio = avio.num_serie
-where companyia.nom like '%British Airways');
+where companyia.nom like '%British Airways')
+order by total_vols;
 
